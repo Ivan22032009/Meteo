@@ -1,44 +1,139 @@
-
+/* Стилі для тіла сторінки */
 body {
-            font-family: Arial, sans-serif;
-            background: url('https://example.com/cloudy-sky.jpg') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 400px;
-        }
-        .search-bar {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .search-bar select, .search-bar input, .search-bar button {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .weather-info {
-            margin-bottom: 20px;
-        }
-        .weather-info img {
-            width: 50px;
-        }
-        .forecast {
-            display: flex;
-            justify-content: space-around;
-        }
-        .forecast-item {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-        }
+    font-family: 'Arial', sans-serif;
+    background: #f0f0f0; /* Легкий нейтральний фон */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s ease; /* Плавна зміна кольору фону */
+}
+
+/* Основний контейнер */
+.container {
+    background: #fff; /* Білий фон для контенту */
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Легка тінь для контейнера */
+}
+
+/* Заголовок */
+h1 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Стилі для пошукової панелі */
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #f4f4f4; /* Легкий фон для пошукової панелі */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.search-bar select, 
+.search-bar input, 
+.search-bar button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.search-bar select {
+    width: 30%;
+}
+
+.search-bar input {
+    width: 50%;
+}
+
+.search-bar button {
+    width: 20%;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.search-bar button:hover {
+    background-color: #4cae4c;
+}
+
+/* Стилі для інформації про погоду */
+.weather-info {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.weather-info img {
+    width: 60px; /* Розмір іконок погодних умов */
+    margin-bottom: 10px;
+}
+
+.weather-info p {
+    margin: 5px 0;
+}
+
+/* Стилі для прогнозу на кілька днів */
+.forecast {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.forecast-item {
+    background: #f9f9f9; /* Легкий фон для прогнозів */
+    padding: 15px;
+    border-radius: 8px;
+    width: 80px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Легка тінь для блоків прогнозу */
+}
+
+.forecast-item p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.forecast-item img {
+    width: 40px; /* Розмір іконок для прогнозу */
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar select,
+    .search-bar input,
+    .search-bar button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .forecast {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .forecast-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
