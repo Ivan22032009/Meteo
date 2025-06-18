@@ -7,12 +7,13 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const API_KEY = 'fa54cd149fe241a9ae3143319250406';
+const API_KEY = process.env.API_KEY;
 
 app.use(cors());
 
 // 🧠 Додаємо роздачу фронтенду з папки client
-app.use(express.static(path.join(__dirname)));
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
 
 // 🌤 API-ендпоінт
 app.get('/weather', async (req, res) => {
