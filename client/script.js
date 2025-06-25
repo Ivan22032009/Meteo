@@ -1,7 +1,18 @@
 const apiUrl = 'http://localhost:3000/weather'; // локальний бекенд
 
 async function getWeather() {
-    const city = document.getElementById('city').value;
+    const select = document.getElementById('city');
+    const input = document.querySelector('.search-bar input');
+    let city;
+    if (select.value === 'other') {
+        city = input.value.trim();
+    } else {
+        city = select.value;
+    }
+    if (!city) {
+        document.getElementById('weather-info').innerHTML = 'Будь ласка, введіть назву міста';
+        return;
+    }
     const url = `${apiUrl}?city=${encodeURIComponent(city)}`;
 
     try {
@@ -43,14 +54,12 @@ function updateBackground(conditionText) {
     body.style.backgroundImage = `url("/images/${backgroundFile}")`;
 }
 
-
 function displayWeather(data) {
     if (!data || !data.forecast || !data.forecast.forecastday) {
         document.getElementById('weather-info').innerHTML = 'Дані не знайдено 😕';
         return;
     }
 
-    // Перевірка на Росію
     if (data.location.country.toLowerCase() === 'russia') {
         showRussiaBlock();
         return;
@@ -98,3 +107,27 @@ function showRussiaBlock() {
         </div>
     `;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const select = document.getElementById('city');
+    const input = document.querySelector('.search-bar input');
+    const button = document.querySelector('.search-bar button');
+
+    // Початкове завантаження погоди для Києва
+    getWeather();
+
+    // При зміні вибору в списку
+    select.addEventListener('change', function() {
+        if (select.value !== 'other') {
+            input.value = ''; // Очистити поле вводу
+        }
+    });
+
+    // При фокусі на полі вводу вибрати "Пошук інших міст..."
+    input.addEventListener('focus', function() {
+        select.value = 'other';
+    });
+
+    // При натисканні кнопки пошуку
+    button.addEventListener('click', getWeather);
+});

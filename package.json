@@ -1,11 +1,19 @@
-{
-  "name": "meteo",
-  "version": "1.0.0",
-  "description": "none",
-  "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+
+  {
+    "name": "weather-app",
+    "version": "1.0.0",
+    "description": "Weather app backend",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "dotenv": "^8.2.0",
+      "cors": "^2.8.5",
+      "node-fetch": "^2.6.1",
+      "node-cache": "^5.1.2"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ivan22032009/Meteo.git"
@@ -25,4 +33,5 @@
     "express": "^5.1.0",
     "node-fetch": "^3.3.2"
   }
+  
 }

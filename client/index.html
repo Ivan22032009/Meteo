@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Прогноз погоди</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Прогноз погоди</h1>
         <div class="search-bar">
-            <select id="country">
-                <option value="uk">Україна</option>
+            <select id="city">
+                <option value="kyiv" selected>Київ</option>
+                <option value="kharkiv">Харків</option>
+                <option value="odesa">Одеса</option>
+                <option value="Lviv">Львів</option>
+                <option value="other">Пошук інших міст...</option>
             </select>
-            <input type="text" id="city" placeholder="Пошук міста...">
-            <button onclick="getWeather()">Пошук</button>
+            <input type="text" placeholder="Пошук міста...">
+            <button>Пошук</button>
         </div>
-        <div id="weather-info" class="weather-info"></div>
-        <div id="forecast" class="forecast"></div>
+        <div class="weather-info" id="weather-info">
+            <!-- Динамічно заповнюється JavaScript -->
+        </div>
+        <div class="forecast" id="forecast">
+            <!-- Динамічно заповнюється JavaScript -->
+        </div>
     </div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
