@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/weather'; // локальний бекенд
+const apiUrl = '/api/weather'; // бекенд
 
 async function getWeather() {
     const select = document.getElementById('city');
